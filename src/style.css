@@ -1,0 +1,210 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 14px;
+  background-color: hsl(165, 15%, 95%);
+}
+
+.wrapper__forms {
+  position: relative;
+  width: 1100px;
+  min-height: 650px;
+  display: flex;
+  box-shadow: 0px 0px 12px #0005;
+  border-radius: 10px;
+}
+
+.form-l, .form-r {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+}
+
+.form__login, .form__register {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+}
+
+.form__login.active-editing, .form__register.active-editing {
+  transition: transform 1s ease-in-out;
+}
+
+.form__register {
+  transform: translateX(-100%);
+}
+
+.login__title, .register__title {
+  font-size: 3rem;
+  letter-spacing: 2px;
+}
+
+.login__icons, .register__icons {
+  width: 60%;
+}
+
+.icons__list {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+}
+
+.icons__list button {
+  display: flex;
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.login__message {
+  color: #4d4d4d;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.login__inputs, .register__inputs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.input__one, .input__two, .input__three {
+  width: 80%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 14px;
+  background-color: hsl(0, 0%, 86%);
+}
+
+#input-email-login, #input-password-login, #input-name-register, #input-email-register, #input-password-register {
+  flex: 1;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+#forgot-password {
+  color: #000;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+}
+
+#btn-login , #btn-register {
+  width: 180px;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  padding: 13px 0px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  background-color: hsl(166, 50%, 42%);
+}
+
+.wrapper__information {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(100%);
+  /* overflow: hidden; */
+  background-color: hsl(166, 51%, 42%);
+  
+}
+
+.wrapper__information.active-editing {
+  transition: transform 1s ease-in-out;
+}
+
+.information__register, .information__login {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 25px;
+  padding: 20px;
+  color: #000;
+  background-color: blue;
+}
+
+.information__register.active-editing, .information__login.active-editing {
+  transition: transform 1s ease-in-out;
+}
+
+.information__login {
+  transform: translateX(100%);
+}
+
+.information__register__title, .information__login__title {
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.register__information, .login__information {
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 1px;
+  line-height: 24px;
+}
+
+#btn-register-information, #btn-login-information {
+  width: 220px;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  padding: 12px 0px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.wrapper__forms.registering .wrapper__information {
+  transform: translate(0);
+}
+
+.wrapper__forms.registering .form__login {
+  transform: translate(100%);
+}
+
+.wrapper__forms.registering .form__register {
+  transform: translate(0);
+}
+
+.wrapper__forms.registering .information__register {
+  transform: translate(-100%);
+}
+
+.wrapper__forms.registering .information__login {
+  transform: translate(0%);
+}
