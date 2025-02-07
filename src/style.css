@@ -1,3 +1,9 @@
+:root {
+  --main-bg-color: hsl(226, 89%, 38%);
+  --form-bg-color: hsl(168, 50%, 96%);
+  --btn-gradient: linear-gradient(to right, rgba(9,9,121,1), rgba(0,212,255,1));
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -12,22 +18,26 @@
   justify-content: center;
   align-items: center;
   padding: 0px 14px;
-  background-color: hsl(165, 15%, 95%);
+  background: rgb(2,0,36);
+  background: linear-gradient(216deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 50%, rgba(0,212,255,1) 100%);
 }
 
 .wrapper__forms {
   position: relative;
-  width: 1100px;
+  width: 1250px;
   min-height: 650px;
   display: flex;
-  box-shadow: 0px 0px 12px #0005;
+  overflow: hidden;
   border-radius: 10px;
+  box-shadow: 0px 10px 16px #0006;
+  background-color: var(--form-bg-color);
 }
 
 .form-l, .form-r {
   width: 100%;
   display: flex;
   overflow: hidden;
+  padding: 10px 14px;
 }
 
 .form__login, .form__register {
@@ -37,10 +47,8 @@
   justify-content: center;
   align-items: center;
   gap: 28px;
-}
-
-.form__login.active-editing, .form__register.active-editing {
-  transition: transform 1s ease-in-out;
+  border-radius: 18px;
+  box-shadow: 0px 0px 16px #0003;
 }
 
 .form__register {
@@ -65,14 +73,15 @@
 .icons__list button {
   display: flex;
   padding: 4px;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 6px;
   cursor: pointer;
+  background-color: transparent;
 }
 
 .login__message {
   color: #4d4d4d;
-  font-size: 16px;
+  font-size: 15px;
   letter-spacing: 2px;
 }
 
@@ -82,20 +91,24 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  gap: 18px;
 }
 
 .input__one, .input__two, .input__three {
   width: 80%;
-  height: 45px;
+  height: 54px;
   display: flex;
   align-items: center;
   gap: 9px;
   padding: 8px 14px;
-  background-color: hsl(0, 0%, 86%);
+  border-radius: 6px;
+  box-shadow: 0px 4px 7px #0004;
+  /* background-color: hsl(0, 0%, 86%); */
 }
 
-#input-email-login, #input-password-login, #input-name-register, #input-email-register, #input-password-register {
+#input-email-login, #input-password-login,
+#input-name-register, #input-email-register,
+#input-password-register {
   flex: 1;
   height: 100%;
   background-color: transparent;
@@ -106,13 +119,13 @@
 }
 
 #forgot-password {
-  color: #000;
+  color: rgb(0, 104, 188);
   letter-spacing: 1px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 #btn-login , #btn-register {
-  width: 180px;
+  width: 210px;
   font-size: 1.3rem;
   letter-spacing: 1px;
   padding: 13px 0px;
@@ -120,7 +133,9 @@
   border-radius: 5px;
   cursor: pointer;
   color: #fff;
-  background-color: hsl(166, 50%, 42%);
+  font-weight: bold;
+  box-shadow: 0px 5px 9px #0005;
+  background: var(--btn-gradient);
 }
 
 .wrapper__information {
@@ -131,32 +146,24 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
   transform: translateX(100%);
-  /* overflow: hidden; */
-  background-color: hsl(166, 51%, 42%);
-  
-}
-
-.wrapper__information.active-editing {
-  transition: transform 1s ease-in-out;
+  background: rgb(27,76,241);
+  background: radial-gradient(circle, rgba(27,76,241,1) 0%, rgba(1,25,108,1) 100%);
 }
 
 .information__register, .information__login {
   position: absolute;
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   gap: 25px;
-  padding: 20px;
-  color: #000;
-  background-color: blue;
-}
-
-.information__register.active-editing, .information__login.active-editing {
-  transition: transform 1s ease-in-out;
+  padding: 10px 60px;
+  color: #fff;
 }
 
 .information__login {
@@ -164,8 +171,8 @@
 }
 
 .information__register__title, .information__login__title {
-  font-size: 3rem;
-  font-weight: 600;
+  font-size: 3.5rem;
+  font-weight: 900;
   letter-spacing: 2px;
 }
 
@@ -179,19 +186,19 @@
 #btn-register-information, #btn-login-information {
   width: 220px;
   font-size: 1.6rem;
+  font-weight: bold;
   letter-spacing: 1px;
   padding: 12px 0px;
   border: 1px solid #fff;
-  border-radius: 5px;
-  color: #fff;
+  border-radius: 40px;
+  color: #000;
   cursor: pointer;
-  background-color: transparent;
+  background-color: #fff;
   cursor: pointer;
+  box-shadow: 0px 4px 12px #0009;
 }
 
-.wrapper__forms.registering .wrapper__information {
-  transform: translate(0);
-}
+/* Start of Styles for transitions and transformations */
 
 .wrapper__forms.registering .form__login {
   transform: translate(100%);
@@ -201,10 +208,24 @@
   transform: translate(0);
 }
 
+.wrapper__forms.active-editing .form__login,
+.wrapper__forms.active-editing .form__register,
+.wrapper__forms.active-editing .wrapper__information,
+.wrapper__forms.active-editing .information__register,
+.wrapper__forms.active-editing .information__login {
+  transition: transform 1s ease-in-out;
+}
+
+.wrapper__forms.registering .wrapper__information {
+  transform: translateX(0);
+}
+
 .wrapper__forms.registering .information__register {
-  transform: translate(-100%);
+  transform: translateX(-100%);
 }
 
 .wrapper__forms.registering .information__login {
-  transform: translate(0%);
+  transform: translateX(0);
 }
+
+/* End of Styles for transitions and transformations */
